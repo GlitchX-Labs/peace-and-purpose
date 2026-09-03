@@ -197,27 +197,6 @@ section{padding:72px 0;}
 }
 .service-card .learn:hover{transform:translateX(4px);}
 
-/* ===== Testimonials (placeholder — swap before launch) ===== */
-.testimonial-grid{display:grid;grid-template-columns:1fr;gap:20px;}
-@media(min-width:720px){.testimonial-grid{grid-template-columns:repeat(3,1fr);}}
-.testimonial-card{
-  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-  padding:26px;display:flex;flex-direction:column;gap:14px;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.testimonial-card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(44,42,36,.08);}
-.testimonial-quote{font-style:italic;color:var(--ink);font-size:.95rem;margin:0;}
-.testimonial-author{display:flex;align-items:center;gap:12px;}
-.testimonial-avatar{
-  width:40px;height:40px;border-radius:50%;background:var(--sage);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:600;font-size:.9rem;flex-shrink:0;
-}
-.testimonial-placeholder-note{
-  font-size:.72rem;color:var(--coral);background:#FCEEE8;border:1px dashed var(--coral);
-  border-radius:6px;padding:.4em .7em;margin-top:2px;
-}
-
-
 /* BOOKING */
 .booking-grid{display:grid;grid-template-columns:1fr;gap:36px;}
 @media(min-width:900px){.booking-grid{grid-template-columns:.9fr 1.1fr;}}
@@ -252,6 +231,87 @@ form.booking-form{
 form.booking-form{transition:box-shadow .3s ease;}
 form.booking-form:focus-within{box-shadow:0 10px 28px rgba(44,42,36,.1);}
 .honeypot{display:none !important;}
+
+/* ===== Pill tabs (Explore Support Areas) ===== */
+.pill-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;}
+.pill-tab{
+  background:#fff;border:1px solid var(--border);border-radius:999px;
+  padding:.6em 1.4em;font-size:.85rem;font-weight:600;color:var(--ink-soft);
+  cursor:pointer;transition:all .25s ease;
+}
+.pill-tab.active, .pill-tab:hover{background:var(--coral);border-color:var(--coral);color:#fff;transform:translateY(-2px);}
+
+/* ===== Feature spotlight (photo + text) ===== */
+.feature-spotlight{
+  display:grid;grid-template-columns:1fr;gap:0;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);margin-bottom:40px;
+}
+@media(min-width:760px){.feature-spotlight{grid-template-columns:1fr 1fr;}}
+.feature-spotlight-text{background:var(--sage-pale);padding:40px;display:flex;flex-direction:column;justify-content:center;}
+.feature-spotlight-text h3{font-size:1.4rem;}
+.feature-spotlight-photo{aspect-ratio:4/3;overflow:hidden;}
+.feature-spotlight-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.feature-spotlight:hover .feature-spotlight-photo img{transform:scale(1.06);}
+
+/* ===== Values / approach cards (replaces "team" grid — solo practice) ===== */
+.values-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+@media(min-width:640px){.values-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.values-grid{grid-template-columns:repeat(4,1fr);}}
+.value-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px 20px;text-align:center;transition:transform .3s ease, box-shadow .3s ease;
+}
+.value-card:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(44,42,36,.08);}
+.value-icon{
+  width:52px;height:52px;border-radius:50%;background:var(--sage-pale);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), background-color .3s ease;
+}
+.value-card:hover .value-icon{background:var(--mustard);transform:rotate(-8deg) scale(1.1);}
+.value-card h4{font-family:'Lora',serif;color:var(--sage-dark);font-size:1rem;margin-bottom:.4em;}
+.value-card p{font-size:.85rem;margin:0;}
+
+/* ===== Testimonials (placeholder — swap before launch) ===== */
+.testimonial-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:720px){.testimonial-grid{grid-template-columns:repeat(3,1fr);}}
+.testimonial-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.testimonial-card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(44,42,36,.08);}
+.testimonial-quote{font-style:italic;color:var(--ink);font-size:.95rem;margin:0;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.testimonial-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--sage);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-weight:600;font-size:.9rem;flex-shrink:0;
+}
+.testimonial-placeholder-note{
+  font-size:.72rem;color:var(--coral);background:#FCEEE8;border:1px dashed var(--coral);
+  border-radius:6px;padding:.4em .7em;margin-top:2px;
+}
+
+/* ===== FAQ split layout ===== */
+.faq-split{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;}
+@media(min-width:860px){.faq-split{grid-template-columns:.8fr 1.2fr;}}
+.faq-intro h1{font-size:clamp(1.8rem,3.4vw,2.6rem);text-align:left;}
+.faq-intro p{text-align:left;}
+.faq-intro .still-questions{margin:28px 0 0;text-align:left;}
+
+/* ===== Contact CTA photo card ===== */
+.contact-cta-card{
+  position:relative;border-radius:var(--radius);overflow:hidden;min-height:320px;
+  display:flex;align-items:flex-end;
+}
+.contact-cta-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.contact-cta-card:hover img{transform:scale(1.05);}
+.contact-cta-overlay{
+  position:relative;z-index:1;width:100%;
+  background:linear-gradient(0deg, rgba(44,42,36,.78), rgba(44,42,36,0));
+  padding:36px 28px 28px;color:#fff;
+}
+.contact-cta-overlay h3{color:#fff;font-size:1.3rem;}
+.contact-cta-overlay p{color:#EFE9DC;font-size:.9rem;}
 
 /* ===== Slot chips (Preferred Date & Time) ===== */
 .slot-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
@@ -331,7 +391,6 @@ form.booking-form:focus-within{box-shadow:0 10px 28px rgba(44,42,36,.1);}
 .crisis{
   background:#FCEDE8;border-top:1px solid #E9C9BE;border-bottom:1px solid #E9C9BE;
   padding:16px 0;
-  align-items:center;justify-content:center;text-align:center;
 }
 .crisis .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.9rem;color:#7A3624;}
 .crisis strong{color:#7A3624;}
