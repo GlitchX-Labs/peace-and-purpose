@@ -117,7 +117,7 @@ nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:1
 
 /* HERO (home) */
 .hero{position:relative;overflow:hidden;padding:0;}
-.hero-inner{position:relative;display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;min-height:460px;}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;min-height:100vh;}
 @media(min-width:900px){.hero-inner{grid-template-columns:1fr;}}
 .hero-photo-bg{
   position:relative;
@@ -177,6 +177,7 @@ section{padding:72px 0;}
   background:#fff;border:1px solid var(--border);border-radius:var(--radius);
   padding:28px 24px;
   transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  align-items:center;text-align:center;display:flex;flex-direction:column;
 }
 .service-card:hover{
   transform:translateY(-6px);
@@ -231,15 +232,6 @@ form.booking-form{
 form.booking-form{transition:box-shadow .3s ease;}
 form.booking-form:focus-within{box-shadow:0 10px 28px rgba(44,42,36,.1);}
 .honeypot{display:none !important;}
-
-/* ===== Pill tabs (Explore Support Areas) ===== */
-.pill-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;}
-.pill-tab{
-  background:#fff;border:1px solid var(--border);border-radius:999px;
-  padding:.6em 1.4em;font-size:.85rem;font-weight:600;color:var(--ink-soft);
-  cursor:pointer;transition:all .25s ease;
-}
-.pill-tab.active, .pill-tab:hover{background:var(--coral);border-color:var(--coral);color:#fff;transform:translateY(-2px);}
 
 /* ===== Feature spotlight (photo + text) ===== */
 .feature-spotlight{

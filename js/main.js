@@ -189,6 +189,13 @@ document.addEventListener('DOMContentLoaded', function () {
         : (slots.length === 0 ? '+ Add a time slot' : '+ Add another time slot');
     }
 
+    // Reset chips/slots after a successful form submission
+    document.addEventListener('slots:reset', function () {
+      slots = [];
+      syncHiddenInputs();
+      updateChips();
+    });
+
     addBtn.addEventListener('click', function () {
       if (slots.length >= maxSlots) return;
       selectedDate = null;
@@ -267,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
           status.textContent = "Thank you — I'll get back to you within a day.";
           status.className = 'ok';
           form.reset();
+          document.dispatchEvent(new Event('slots:reset'));
         } else {
           status.textContent = 'Something went wrong. Please try again or reach out directly.';
           status.className = 'err';
