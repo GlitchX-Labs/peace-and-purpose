@@ -375,6 +375,18 @@ nav.wrap {
 section {
   padding: 72px 0;
 }
+.about-services-bg {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(rgba(251, 247, 241, 0.42), rgba(251, 247, 241, 0.56)),
+    url("../images/avatar-bg.jpg") center / cover no-repeat;
+}
+.about-services-bg > section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
 .section-head {
   max-width: 640px;
   margin-bottom: 36px;
@@ -383,7 +395,7 @@ section {
   margin: 0;
 }
 .alt-bg {
-  background: var(--cream-deep);
+  background-color: var(--cream-deep);
 }
 
 /* ABOUT */
@@ -532,6 +544,17 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 36px;
+}
+.booking-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(rgba(251, 247, 241, 0.28), rgba(251, 247, 241, 0.42)),
+    url("../images/dev_bg.jpg") right center / cover no-repeat;
+}
+.booking-section > .wrap {
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 900px) {
   .booking-grid {
