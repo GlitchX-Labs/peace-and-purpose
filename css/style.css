@@ -23,11 +23,17 @@ html {
 }
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Montserrat", sans-serif;
   color: var(--ink);
   background: var(--cream);
   line-height: 1.6;
   animation: pageFadeIn 0.5s ease both;
+}
+main {
+  flex: 1;
 }
 
 /* ===== Animation keyframes ===== */
@@ -230,9 +236,10 @@ nav.wrap {
   display: none;
   gap: 32px;
   list-style: none;
-  margin: 0;
+  margin: 0 32px 0 auto;
   padding: 0;
 }
+
 .nav-links a {
   position: relative;
   font-size: 0.95rem;
@@ -634,6 +641,10 @@ form.booking-form:focus-within {
 }
 .honeypot {
   display: none !important;
+}
+/* Anchor-scroll offset — keeps sticky header from covering the jumped-to section */
+section[id] {
+  scroll-margin-top: 85px;
 }
 
 /* ===== Feature spotlight (photo + text) ===== */
@@ -1525,4 +1536,12 @@ footer {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: 600;
 }
