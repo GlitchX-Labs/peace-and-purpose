@@ -1,18 +1,26 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { motion, useReducedMotion } from "motion/react";
+import { AnimateIcon } from "./components/animate-ui/icons/icon";
+import { Activity } from "./components/animate-ui/icons/activity";
+import { ArrowUp } from "./components/animate-ui/icons/arrow-up";
+import { Blocks } from "./components/animate-ui/icons/blocks";
+import { Blend } from "./components/animate-ui/icons/blend";
+import { Clock } from "./components/animate-ui/icons/clock";
+import { Heart } from "./components/animate-ui/icons/heart";
+import { Lock } from "./components/animate-ui/icons/lock";
+import { MessageCircleHeart } from "./components/animate-ui/icons/message-circle-heart";
+import { MessageSquareMore } from "./components/animate-ui/icons/message-square-more";
+import { PhoneCall } from "./components/animate-ui/icons/phone-call";
+import { Star } from "./components/animate-ui/icons/star";
+import { Sun } from "./components/animate-ui/icons/sun";
+import { UserRound } from "./components/animate-ui/icons/user-round";
+import { UsersRound } from "./components/animate-ui/icons/users-round";
 import "./animated-icons.css";
 
 const paths = {
-  heart: (
-    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
-  ),
   star: <path d="m12 3 3 6 6 1-4.5 4.4L17.5 20 12 17l-5.5 3 1-6.6L3 9l6-1z" />,
-  shield: (
-    <>
-      <path d="M12 3 20 6v5c0 5-3.2 8.2-8 10-4.8-1.8-8-5-8-10V6l8-3z" />
-      <path d="m8.5 12 2.2 2.2 4.8-5" />
-    </>
-  ),
+
   activity: (
     <>
       <path d="M3 12h4l3 8 4-16 3 8h4" />
@@ -31,7 +39,6 @@ const paths = {
       <path d="M2 21c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5M10 21c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5" />
     </>
   ),
-  droplet: <path d="M12 3C9 6 7 9 7 12a5 5 0 0 0 10 0c0-3-2-6-5-9z" />,
   mail: (
     <>
       <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -48,18 +55,132 @@ const paths = {
 };
 
 const iconSets = {
-  "service-icon": ["user", "users", "droplet"],
-  "value-icon": ["heart", "star", "shield", "activity"],
-  "contact-icon": ["mail", "phone"],
-  "icon-circle": ["shield", "activity", "heart", "star"],
+  "service-icon": ["user-round", "users-round", "blend"],
+  "value-icon": ["heart", "clock", "lock", "activity"],
+  "contact-icon": ["message-square-more", "phone-call"],
+  "icon-circle": ["lock", "activity", "heart", "star"],
+};
+
+const animatedComponents = {
+  activity: Activity,
+  "arrow-up": ArrowUp,
+  blocks: Blocks,
+  blend: Blend,
+  clock: Clock,
+  heart: Heart,
+  lock: Lock,
+  "message-circle-heart": MessageCircleHeart,
+  "message-square-more": MessageSquareMore,
+  "phone-call": PhoneCall,
+  star: Star,
+  sun: Sun,
+  "user-round": UserRound,
+  "users-round": UsersRound,
+};
+
+const iconAnimations = {
+  activity: "default-return",
+  "arrow-up": "default-loop",
+  blocks: "default",
+  blend: "default",
+  clock: "default",
+  heart: "fill",
+  lock: "lock",
+  "message-circle-heart": "default",
+  "message-square-more": "default",
+  "phone-call": "default",
+  star: "fill",
+  sun: "default",
+  "user-round": "default",
+  "users-round": "default",
 };
 
 function AnimatedIcon({ name }) {
+  const shouldReduceMotion = useReducedMotion();
+  const iconRef = React.useRef(null);
+  const [parentHovered, setParentHovered] = React.useState(false);
+
+  React.useEffect(() => {
+    const parent = iconRef.current?.closest(
+      ".service-card, .value-card, .contact-row, .card",
+    );
+    if (!parent) return undefined;
+
+    const handleEnter = () => setParentHovered(true);
+    const handleLeave = () => setParentHovered(false);
+    parent.addEventListener("mouseenter", handleEnter);
+    parent.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      parent.removeEventListener("mouseenter", handleEnter);
+      parent.removeEventListener("mouseleave", handleLeave);
+    };
+  }, []);
+
+  const Icon = animatedComponents[name];
+
+  if (Icon) {
+    return (
+      <span ref={iconRef} className="animated-icon-motion-target">
+        <AnimateIcon
+          animate={parentHovered}
+          animateOnHover
+          loop={parentHovered}
+          loopDelay={800}
+          animation={iconAnimations[name] || "default"}
+        >
+          <Icon className="animated-icon" size={20} />
+        </AnimateIcon>
+      </span>
+    );
+  }
+  return (
+    <motion.span
+      ref={iconRef}
+      className="animated-icon-motion-target"
+      animate={
+        parentHovered && !shouldReduceMotion
+          ? { y: [0, -3, 1, -2, 0], scale: [1, 1.16, 1.22, 1.14, 1.08, 1] }
+          : { y: 0, scale: 1 }
+      }
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : {
+              y: [0, -3, 1, -2, 0],
+              scale: [1, 1.16, 1.22, 1.14, 1.08, 1],
+            }
+      }
+      transition={
+        parentHovered && !shouldReduceMotion
+          ? { duration: 0.9, ease: "easeInOut" }
+          : { duration: 0.2, ease: "easeOut" }
+      }
+    >
+      <svg
+        className="animated-icon animated-icon-pulse text-(--sage-dark)"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        {paths[name]}
+      </svg>
+    </motion.span>
+  );
+}
+
+function AnimatedGlyph({ name }) {
   return (
     <svg
-      className="animated-icon animated-icon-pulse text-[var(--sage-dark)]"
-      width="20"
-      height="20"
+      className="animated-control-svg"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -73,8 +194,16 @@ function AnimatedIcon({ name }) {
   );
 }
 
-function AnimatedGlyph({ name }) {
-  return <>{paths[name]}</>;
+function AnimatedControlIcon({ name }) {
+  if (name === "arrow-up") {
+    return (
+      <AnimateIcon animate loop loopDelay={1200} animation="default-loop">
+        <ArrowUp className="animated-control-svg" size={14} />
+      </AnimateIcon>
+    );
+  }
+
+  return <AnimatedGlyph name={name} />;
 }
 
 function enhanceIcons() {
@@ -82,9 +211,8 @@ function enhanceIcons() {
     document.querySelectorAll(`.${className}`).forEach((element, index) => {
       element.classList.add("animated-icon-shell");
       element.replaceChildren();
-      createRoot(element).render(
-        <AnimatedIcon name={names[index % names.length]} />,
-      );
+      const name = element.dataset.icon || names[index % names.length];
+      createRoot(element).render(<AnimatedIcon name={name} />);
     });
   });
 
@@ -94,19 +222,20 @@ function enhanceIcons() {
   });
 
   const controlIcons = {
-    "#cal-prev svg": "arrowLeft",
-    "#cal-next svg": "arrowRight",
-    "#hour-up svg": "arrowUp",
-    "#min-up svg": "arrowUp",
-    "#hour-down svg": "chevronDown",
-    "#min-down svg": "chevronDown",
+    "#back-to-top": "arrow-up",
+    "#cal-prev": "arrowLeft",
+    "#cal-next": "arrowRight",
+    "#hour-up": "arrow-up",
+    "#min-up": "arrow-up",
+    "#hour-down": "chevronDown",
+    "#min-down": "chevronDown",
   };
 
   Object.entries(controlIcons).forEach(([selector, name]) => {
     const element = document.querySelector(selector);
     if (!element) return;
     element.classList.add("animated-control-icon");
-    createRoot(element).render(<AnimatedGlyph name={name} />);
+    createRoot(element).render(<AnimatedControlIcon name={name} />);
   });
 }
 

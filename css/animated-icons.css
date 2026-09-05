@@ -1,2 +1,93 @@
-.text-\[var\(--sage-dark\)\]{color:var(--sage-dark)}.animated-icon{transition:transform .3s cubic-bezier(.34,1.56,.64,1);display:block}.animated-icon path,.animated-icon circle,.animated-icon rect,.animated-control-icon path,.animated-control-icon polyline{stroke-dasharray:80;stroke-dashoffset:80px;animation:.8s cubic-bezier(.22,1,.36,1) forwards iconDraw}.animated-icon-shell:hover .animated-icon,.service-card:hover .animated-icon,.value-card:hover .animated-icon,.card:hover .animated-icon{transform:scale(1.14)rotate(-6deg)}.service-card:hover .animated-icon-shell,.value-card:hover .animated-icon-shell,.card:hover .animated-icon-shell{background:var(--mustard)}.animated-icon-shell:hover .animated-icon-pulse{animation:.7s ease-in-out iconPulse}.animated-control-icon{transition:transform .22s cubic-bezier(.34,1.56,.64,1)}.faq-q:hover .animated-control-icon,.cal-nav-btn:hover .animated-control-icon,.time-spin-btn:hover .animated-control-icon{transform:scale(1.18)}.faq-item.open .animated-control-icon{transform:rotate(180deg)}@keyframes iconDraw{to{stroke-dashoffset:0}}@keyframes iconPulse{0%,to{opacity:1}50%{opacity:.55}}@media (prefers-reduced-motion:reduce){.animated-icon,.animated-control-icon,.animated-icon path,.animated-icon circle,.animated-icon rect,.animated-control-icon path,.animated-control-icon polyline,.animated-icon-shell:hover .animated-icon-pulse{transition:none;animation:none}}
+.text-\[var\(--sage-dark\)\] {
+  color: var(--sage-dark);
+}
+.animated-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: block;
+}
+.animated-icon path,
+.animated-icon circle,
+.animated-icon rect,
+.animated-control-icon path,
+.animated-control-icon polyline {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80px;
+  animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards iconDraw;
+}
+.animated-icon-shell:hover .animated-icon,
+.service-card:hover .animated-icon,
+.value-card:hover .animated-icon,
+.card:hover .animated-icon {
+  transform: scale(1.14);
+}
+.service-card:hover .animated-icon-shell,
+.value-card:hover .animated-icon-shell,
+.card:hover .animated-icon-shell {
+  background: var(--mustard);
+}
+.animated-icon-shell:hover .animated-icon-pulse {
+  animation: 0.7s ease-in-out iconPulse;
+}
+.animated-control-icon {
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.animated-control-svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  overflow: visible;
+  stroke: currentColor;
+}
+.cal-nav-btn .animated-control-svg {
+  width: 16px;
+  height: 16px;
+}
+.time-spin-btn .animated-control-svg {
+  width: 14px;
+  height: 14px;
+}
+.faq-q:hover .animated-control-icon,
+.cal-nav-btn:hover .animated-control-icon,
+.time-spin-btn:hover .animated-control-icon {
+  transform: scale(1.18);
+}
+.faq-item.open .animated-control-icon {
+  transform: rotate(180deg);
+}
+@keyframes iconDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes iconPulse {
+  0%,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animated-icon,
+  .animated-control-icon,
+  .animated-icon path,
+  .animated-icon circle,
+  .animated-icon rect,
+  .animated-control-icon path,
+  .animated-control-icon polyline,
+  .animated-icon-shell:hover .animated-icon-pulse {
+    transition: none;
+    animation: none;
+  }
+}
 /*$vite$:1*/
+.animated-icon-motion-target {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+}
