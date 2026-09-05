@@ -1466,9 +1466,10 @@ section[id] {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-.faq-q:hover {
+/*.faq-q:hover {
   background: var(--sage-pale);
 }
+  */
 .faq-q .chev {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   flex-shrink: 0;

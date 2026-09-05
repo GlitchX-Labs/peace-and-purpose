@@ -2,7 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { motion, useReducedMotion } from "motion/react";
 import { AnimateIcon } from "./components/animate-ui/icons/icon";
-import { Activity } from "./components/animate-ui/icons/activity";
 import { ArrowUp } from "./components/animate-ui/icons/arrow-up";
 import { Blocks } from "./components/animate-ui/icons/blocks";
 import { Blend } from "./components/animate-ui/icons/blend";
@@ -12,20 +11,17 @@ import { Lock } from "./components/animate-ui/icons/lock";
 import { MessageCircleHeart } from "./components/animate-ui/icons/message-circle-heart";
 import { MessageSquareMore } from "./components/animate-ui/icons/message-square-more";
 import { PhoneCall } from "./components/animate-ui/icons/phone-call";
+import { Search } from "./components/animate-ui/icons/search";
 import { Star } from "./components/animate-ui/icons/star";
 import { Sun } from "./components/animate-ui/icons/sun";
 import { UserRound } from "./components/animate-ui/icons/user-round";
 import { UsersRound } from "./components/animate-ui/icons/users-round";
+import { Sparkles } from "./components/animate-ui/icons/sparkles";
 import "./animated-icons.css";
 
 const paths = {
   star: <path d="m12 3 3 6 6 1-4.5 4.4L17.5 20 12 17l-5.5 3 1-6.6L3 9l6-1z" />,
 
-  activity: (
-    <>
-      <path d="M3 12h4l3 8 4-16 3 8h4" />
-    </>
-  ),
   user: (
     <>
       <circle cx="12" cy="8" r="4" />
@@ -55,14 +51,13 @@ const paths = {
 };
 
 const iconSets = {
-  "service-icon": ["user-round", "users-round", "blend"],
-  "value-icon": ["heart", "clock", "lock", "activity"],
+  "service-icon": ["user-round", "users-round", "sparkles"],
+  "value-icon": ["heart", "clock", "lock", "search"],
   "contact-icon": ["message-square-more", "phone-call"],
-  "icon-circle": ["lock", "activity", "heart", "star"],
+  "icon-circle": ["lock", "search", "heart", "star"],
 };
 
 const animatedComponents = {
-  activity: Activity,
   "arrow-up": ArrowUp,
   blocks: Blocks,
   blend: Blend,
@@ -72,6 +67,8 @@ const animatedComponents = {
   "message-circle-heart": MessageCircleHeart,
   "message-square-more": MessageSquareMore,
   "phone-call": PhoneCall,
+  search: Search,
+  sparkles: Sparkles,
   star: Star,
   sun: Sun,
   "user-round": UserRound,
@@ -79,9 +76,8 @@ const animatedComponents = {
 };
 
 const iconAnimations = {
-  activity: "default-return",
   "arrow-up": "default-loop",
-  blocks: "default",
+  blocks: "default-loop",
   blend: "default",
   clock: "default",
   heart: "fill",
@@ -89,6 +85,8 @@ const iconAnimations = {
   "message-circle-heart": "default",
   "message-square-more": "default",
   "phone-call": "default",
+  search: "find",
+  sparkles: "default",
   star: "fill",
   sun: "default",
   "user-round": "default",
@@ -129,7 +127,12 @@ function AnimatedIcon({ name }) {
           loopDelay={800}
           animation={iconAnimations[name] || "default"}
         >
-          <Icon className="animated-icon" size={20} />
+          <Icon
+            className="animated-icon"
+            size={20}
+            animation={iconAnimations[name] || "default"}
+            animate={parentHovered}
+          />
         </AnimateIcon>
       </span>
     );

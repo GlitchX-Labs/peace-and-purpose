@@ -8,38 +8,34 @@ const animations = {
   default: {
     group: {
       initial: {
-        scale: 1,
+        rotate: 0,
       },
       animate: {
-        scale: [1, 0.9, 1.2, 1],
-        transition: { duration: 0.6, ease: "easeInOut" },
+        transformOrigin: "bottom right",
+        rotate: [0, 17, -10, 5, -1, 0],
+        transition: { duration: 0.8, ease: "easeInOut" },
       },
     },
 
     path: {},
+    circle: {},
   },
 
-  fill: {
+  find: {
     group: {
       initial: {
-        scale: 1,
+        x: 0,
+        y: 0,
       },
       animate: {
-        scale: [1, 0.9, 1.2, 1],
-        transition: { duration: 0.6, ease: "easeInOut" },
+        x: [0, "-15%", 0, 0],
+        y: [0, 0, "-15%", 0],
+        transition: { duration: 1, ease: "easeInOut" },
       },
     },
 
-    path: {
-      initial: {
-        fill: "#ffb6c1",
-        fillOpacity: 0,
-      },
-      animate: {
-        fillOpacity: 1,
-        transition: { delay: 0.2 },
-      },
-    },
+    path: {},
+    circle: {},
   },
 };
 
@@ -64,8 +60,16 @@ function IconComponent({ size, ...props }) {
       {...props}
     >
       <motion.path
-        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+        d="m21 21-4.34-4.34"
         variants={variants.path}
+        initial="initial"
+        animate={controls}
+      />
+      <motion.circle
+        cx={11}
+        cy={11}
+        r={8}
+        variants={variants.circle}
         initial="initial"
         animate={controls}
       />
@@ -73,8 +77,8 @@ function IconComponent({ size, ...props }) {
   );
 }
 
-function Heart(props) {
+function Search(props) {
   return <IconWrapper icon={IconComponent} {...props} />;
 }
 
-export { animations, Heart, Heart as HeartIcon };
+export { animations, Search, Search as SearchIcon };

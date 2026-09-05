@@ -75,6 +75,7 @@ function AnimateIcon({
   persistOnAnimateEnd = false,
   delay = 0,
   children,
+  render,
   ...props
 }) {
   const controls = useAnimation();
@@ -307,7 +308,10 @@ function AnimateIcon({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localAnimate, controls]);
 
-  const childProps = React.isValidElement(children) ? children.props : {};
+  const contentChildren = children ?? render;
+  const childProps = React.isValidElement(contentChildren)
+    ? contentChildren.props
+    : {};
 
   const handleMouseEnter = composeEventHandlers(childProps.onMouseEnter, () => {
     if (animateOnHover) startAnimation(animateOnHover);
@@ -337,7 +341,7 @@ function AnimateIcon({
       onPointerUp={handlePointerUp}
       {...props}
     >
-      {children}
+      {contentChildren}
     </Slot>
   ) : (
     <motion.span
@@ -348,7 +352,7 @@ function AnimateIcon({
       onPointerUp={handlePointerUp}
       {...props}
     >
-      {children}
+      {contentChildren}
     </motion.span>
   );
 
@@ -443,19 +447,18 @@ function IconWrapper({
           initialOnAnimateEnd={initialOnAnimateEnd ?? parentInitialOnAnimateEnd}
           delay={delay ?? parentDelay}
           completeOnStop={completeOnStop ?? parentCompleteOnStop}
-          render={
-            <IconComponent
-              size={size}
-              className={cn(
-                className,
-                ((animationProp ?? parentAnimation) === "path" ||
-                  (animationProp ?? parentAnimation) === "path-loop") &&
-                  pathClassName,
-              )}
-              {...props}
-            />
-          }
-        ></AnimateIcon>
+        >
+          <IconComponent
+            size={size}
+            className={cn(
+              className,
+              ((animationProp ?? parentAnimation) === "path" ||
+                (animationProp ?? parentAnimation) === "path-loop") &&
+                pathClassName,
+            )}
+            {...props}
+          />
+        </AnimateIcon>
       );
     }
 
@@ -510,18 +513,17 @@ function IconWrapper({
         loopDelay={loopDelay}
         delay={delay}
         completeOnStop={completeOnStop}
-        render={
-          <IconComponent
-            size={size}
-            className={cn(
-              className,
-              (animationProp === "path" || animationProp === "path-loop") &&
-                pathClassName,
-            )}
-            {...props}
-          />
-        }
-      ></AnimateIcon>
+      >
+        <IconComponent
+          size={size}
+          className={cn(
+            className,
+            (animationProp === "path" || animationProp === "path-loop") &&
+              pathClassName,
+          )}
+          {...props}
+        />
+      </AnimateIcon>
     );
   }
 
