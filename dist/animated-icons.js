@@ -8044,8 +8044,8 @@ var e = Object.create, t = Object.defineProperty, n = Object.getOwnPropertyDescr
 	}
 	n(), t.exports = h();
 })), _ = /* @__PURE__ */ o(((e) => {
-	var t = Symbol.for("react.transitional.element"), n = Symbol.for("react.fragment");
-	function r(e, n, r) {
+	var t = Symbol.for("react.transitional.element");
+	function n(e, n, r) {
 		var i = null;
 		if (r !== void 0 && (i = "" + r), n.key !== void 0 && (i = "" + n.key), "key" in n) for (var a in r = {}, n) a !== "key" && (r[a] = n[a]);
 		else r = n;
@@ -8057,7 +8057,7 @@ var e = Object.create, t = Object.defineProperty, n = Object.getOwnPropertyDescr
 			props: r
 		};
 	}
-	e.Fragment = n, e.jsx = r, e.jsxs = r;
+	e.jsx = n, e.jsxs = n;
 })), v = /* @__PURE__ */ o(((e, t) => {
 	t.exports = _();
 })), y = /* @__PURE__ */ c(u(), 1), b = (0, y.createContext)({});
@@ -14371,78 +14371,8 @@ function Q(e) {
 	});
 }
 //#endregion
-//#region src/components/animate-ui/icons/blend.jsx
-var bd = { default: {
-	circle1: {
-		initial: {
-			x: 0,
-			y: 0
-		},
-		animate: {
-			x: 6,
-			y: 6,
-			transition: {
-				type: "spring",
-				stiffness: 100,
-				damping: 12
-			}
-		}
-	},
-	circle2: {
-		initial: {
-			x: 0,
-			y: 0
-		},
-		animate: {
-			x: -6,
-			y: -6,
-			transition: {
-				type: "spring",
-				stiffness: 100,
-				damping: 12
-			}
-		}
-	}
-} };
-function xd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(bd);
-	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
-		xmlns: "http://www.w3.org/2000/svg",
-		width: e,
-		height: e,
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: 2,
-		strokeLinecap: "round",
-		strokeLinejoin: "round",
-		...t,
-		children: [/* @__PURE__ */ (0, W.jsx)(X.circle, {
-			cx: "9",
-			cy: "9",
-			r: "7",
-			variants: r.circle1,
-			initial: "initial",
-			animate: n
-		}), /* @__PURE__ */ (0, W.jsx)(X.circle, {
-			cx: "15",
-			cy: "15",
-			r: "7",
-			variants: r.circle2,
-			initial: "initial",
-			animate: n
-		})]
-	});
-}
-function Sd(e) {
-	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: xd,
-		...e
-	});
-}
-//#endregion
 //#region src/components/animate-ui/icons/clock.jsx
-var Cd = { default: {
+var bd = { default: {
 	circle: {},
 	line1: {
 		initial: {
@@ -14483,8 +14413,8 @@ var Cd = { default: {
 		}
 	}
 } };
-function wd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Cd);
+function xd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(bd);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -14526,15 +14456,15 @@ function wd({ size: e, ...t }) {
 		]
 	});
 }
-function Td(e) {
+function Sd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: wd,
+		icon: xd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/heart.jsx
-var Ed = {
+var Cd = {
 	default: {
 		group: {
 			initial: { scale: 1 },
@@ -14581,8 +14511,8 @@ var Ed = {
 		}
 	}
 };
-function Dd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Ed);
+function wd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Cd);
 	return /* @__PURE__ */ (0, W.jsx)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -14605,15 +14535,15 @@ function Dd({ size: e, ...t }) {
 		})
 	});
 }
-function Od(e) {
+function Td(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Dd,
+		icon: wd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/lock.jsx
-var kd = {
+var Ed = {
 	default: {
 		group: {
 			initial: {
@@ -14727,8 +14657,8 @@ var kd = {
 		rect: {}
 	}
 };
-function Ad({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(kd);
+function Dd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Ed);
 	return /* @__PURE__ */ (0, W.jsx)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -14765,16 +14695,16 @@ function Ad({ size: e, ...t }) {
 		})
 	});
 }
-function jd(e) {
+function Od(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Ad,
+		icon: Dd,
 		animation: "lock",
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/message-circle-heart.jsx
-var Md = { default: {
+var kd = { default: {
 	group: {
 		initial: { rotate: 0 },
 		animate: {
@@ -14816,8 +14746,8 @@ var Md = { default: {
 		}
 	}
 } };
-function $({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Md);
+function Ad({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(kd);
 	return /* @__PURE__ */ (0, W.jsx)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -14847,15 +14777,15 @@ function $({ size: e, ...t }) {
 		})
 	});
 }
-function Nd(e) {
+function jd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: $,
+		icon: Ad,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/message-square-more.jsx
-var Pd = {
+var Md = {
 	default: {
 		group: {
 			initial: { rotate: 0 },
@@ -15054,8 +14984,8 @@ var Pd = {
 		}
 	}
 };
-function Fd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Pd);
+function $({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Md);
 	return /* @__PURE__ */ (0, W.jsx)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15109,15 +15039,15 @@ function Fd({ size: e, ...t }) {
 		})
 	});
 }
-function Id(e) {
+function Nd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Fd,
+		icon: $,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/phone-call.jsx
-var Ld = { default: (() => {
+var Pd = { default: (() => {
 	let e = { phone: {} };
 	for (let t = 1; t <= 2; t++) e[`wave${t}`] = {
 		initial: {
@@ -15149,8 +15079,8 @@ var Ld = { default: (() => {
 	};
 	return e;
 })() };
-function Rd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Ld);
+function Fd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Pd);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15184,15 +15114,15 @@ function Rd({ size: e, ...t }) {
 		]
 	});
 }
-function zd(e) {
+function Id(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Rd,
+		icon: Fd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/search.jsx
-var Bd = {
+var Ld = {
 	default: {
 		group: {
 			initial: { rotate: 0 },
@@ -15244,8 +15174,8 @@ var Bd = {
 		circle: {}
 	}
 };
-function Vd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Bd);
+function Rd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Ld);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15275,15 +15205,15 @@ function Vd({ size: e, ...t }) {
 		})]
 	});
 }
-function Hd(e) {
+function zd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Vd,
+		icon: Rd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/star.jsx
-var Ud = {
+var Bd = {
 	default: {
 		group: {
 			initial: { scale: 1 },
@@ -15330,8 +15260,8 @@ var Ud = {
 		}
 	}
 };
-function Wd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Ud);
+function Vd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Bd);
 	return /* @__PURE__ */ (0, W.jsx)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15354,141 +15284,15 @@ function Wd({ size: e, ...t }) {
 		})
 	});
 }
-function Gd(e) {
+function Hd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Wd,
-		...e
-	});
-}
-//#endregion
-//#region src/components/animate-ui/icons/sun.jsx
-var Kd = { default: (() => {
-	let e = { circle: {} };
-	for (let t = 1; t <= 8; t++) e[`line${t}`] = {
-		initial: {
-			opacity: 1,
-			scale: 1
-		},
-		animate: {
-			opacity: [0, 1],
-			pathLength: [0, 1],
-			transition: {
-				duration: .6,
-				ease: "easeInOut",
-				delay: (t - 1) * .15
-			}
-		}
-	};
-	return e;
-})() };
-function qd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Kd);
-	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
-		xmlns: "http://www.w3.org/2000/svg",
-		width: e,
-		height: e,
-		viewBox: "0 0 24 24",
-		fill: "none",
-		stroke: "currentColor",
-		strokeWidth: 2,
-		strokeLinecap: "round",
-		strokeLinejoin: "round",
-		initial: "initial",
-		animate: n,
-		...t,
-		children: [
-			/* @__PURE__ */ (0, W.jsx)(X.circle, {
-				cx: "12",
-				cy: "12",
-				r: "4",
-				variants: r.circle,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "12",
-				y1: "4",
-				x2: "12",
-				y2: "2",
-				variants: r.line1,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "17.7",
-				y1: "6.3",
-				x2: "19.1",
-				y2: "4.9",
-				variants: r.line2,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "20",
-				y1: "12",
-				x2: "22",
-				y2: "12",
-				variants: r.line3,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "17.7",
-				y1: "17.7",
-				x2: "19.1",
-				y2: "19.1",
-				variants: r.line4,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "12",
-				y1: "20",
-				x2: "12",
-				y2: "22",
-				variants: r.line5,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "6.3",
-				y1: "17.7",
-				x2: "4.9",
-				y2: "19.1",
-				variants: r.line6,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "4",
-				y1: "12",
-				x2: "2",
-				y2: "12",
-				variants: r.line7,
-				initial: "initial",
-				animate: n
-			}),
-			/* @__PURE__ */ (0, W.jsx)(X.line, {
-				x1: "6.3",
-				y1: "6.3",
-				x2: "4.9",
-				y2: "4.9",
-				variants: r.line8,
-				initial: "initial",
-				animate: n
-			})
-		]
-	});
-}
-function Jd(e) {
-	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: qd,
+		icon: Vd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/user-round.jsx
-var Yd = { default: {
+var Ud = { default: {
 	path: {
 		initial: { y: 0 },
 		animate: {
@@ -15520,8 +15324,8 @@ var Yd = { default: {
 		}
 	}
 } };
-function Xd({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Yd);
+function Wd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Ud);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15548,15 +15352,15 @@ function Xd({ size: e, ...t }) {
 		})]
 	});
 }
-function Zd(e) {
+function Gd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: Xd,
+		icon: Wd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/users-round.jsx
-var Qd = {
+var Kd = {
 	default: {
 		path1: {
 			initial: { y: 0 },
@@ -15656,8 +15460,8 @@ var Qd = {
 		circle: {}
 	}
 };
-function $d({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(Qd);
+function qd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Kd);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15699,15 +15503,15 @@ function $d({ size: e, ...t }) {
 		]
 	});
 }
-function ef(e) {
+function Jd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: $d,
+		icon: qd,
 		...e
 	});
 }
 //#endregion
 //#region src/components/animate-ui/icons/sparkles.jsx
-var tf = {
+var Yd = {
 	default: {
 		group: {
 			initial: { scale: 1 },
@@ -15866,8 +15670,8 @@ var tf = {
 		}
 	}
 };
-function nf({ size: e, ...t }) {
-	let { controls: n } = ud(), r = md(tf);
+function Xd({ size: e, ...t }) {
+	let { controls: n } = ud(), r = md(Yd);
 	return /* @__PURE__ */ (0, W.jsxs)(X.svg, {
 		xmlns: "http://www.w3.org/2000/svg",
 		width: e,
@@ -15908,47 +15712,19 @@ function nf({ size: e, ...t }) {
 		]
 	});
 }
-function rf(e) {
+function Zd(e) {
 	return /* @__PURE__ */ (0, W.jsx)(pd, {
-		icon: nf,
+		icon: Xd,
 		...e
 	});
 }
 //#endregion
 //#region src/animated-icons.jsx
-var af = {
-	star: /* @__PURE__ */ (0, W.jsx)("path", { d: "m12 3 3 6 6 1-4.5 4.4L17.5 20 12 17l-5.5 3 1-6.6L3 9l6-1z" }),
-	user: /* @__PURE__ */ (0, W.jsxs)(W.Fragment, { children: [/* @__PURE__ */ (0, W.jsx)("circle", {
-		cx: "12",
-		cy: "8",
-		r: "4"
-	}), /* @__PURE__ */ (0, W.jsx)("path", { d: "M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" })] }),
-	users: /* @__PURE__ */ (0, W.jsxs)(W.Fragment, { children: [
-		/* @__PURE__ */ (0, W.jsx)("circle", {
-			cx: "8",
-			cy: "9",
-			r: "3"
-		}),
-		/* @__PURE__ */ (0, W.jsx)("circle", {
-			cx: "16",
-			cy: "9",
-			r: "3"
-		}),
-		/* @__PURE__ */ (0, W.jsx)("path", { d: "M2 21c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5M10 21c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5" })
-	] }),
-	mail: /* @__PURE__ */ (0, W.jsxs)(W.Fragment, { children: [/* @__PURE__ */ (0, W.jsx)("rect", {
-		x: "3",
-		y: "5",
-		width: "18",
-		height: "14",
-		rx: "2"
-	}), /* @__PURE__ */ (0, W.jsx)("path", { d: "m3 7 9 6 9-6" })] }),
-	phone: /* @__PURE__ */ (0, W.jsx)("path", { d: "M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2z" }),
+var Qd = {
 	chevronDown: /* @__PURE__ */ (0, W.jsx)("polyline", { points: "6 9 12 15 18 9" }),
 	arrowLeft: /* @__PURE__ */ (0, W.jsx)("polyline", { points: "15 18 9 12 15 6" }),
-	arrowRight: /* @__PURE__ */ (0, W.jsx)("polyline", { points: "9 18 15 12 9 6" }),
-	arrowUp: /* @__PURE__ */ (0, W.jsx)("polyline", { points: "18 15 12 9 6 15" })
-}, of = {
+	arrowRight: /* @__PURE__ */ (0, W.jsx)("polyline", { points: "9 18 15 12 9 6" })
+}, $d = {
 	"service-icon": [
 		"user-round",
 		"users-round",
@@ -15967,26 +15743,23 @@ var af = {
 		"heart",
 		"star"
 	]
-}, sf = {
+}, ef = {
 	"arrow-up": _d,
 	blocks: Q,
-	blend: Sd,
-	clock: Td,
-	heart: Od,
-	lock: jd,
-	"message-circle-heart": Nd,
-	"message-square-more": Id,
-	"phone-call": zd,
-	search: Hd,
-	sparkles: rf,
-	star: Gd,
-	sun: Jd,
-	"user-round": Zd,
-	"users-round": ef
-}, cf = {
+	clock: Sd,
+	heart: Td,
+	lock: Od,
+	"message-circle-heart": jd,
+	"message-square-more": Nd,
+	"phone-call": Id,
+	search: zd,
+	sparkles: Zd,
+	star: Hd,
+	"user-round": Gd,
+	"users-round": Jd
+}, tf = {
 	"arrow-up": "default-loop",
 	blocks: "default-loop",
-	blend: "default",
 	clock: "default",
 	heart: "fill",
 	lock: "lock",
@@ -15996,11 +15769,10 @@ var af = {
 	search: "find",
 	sparkles: "default",
 	star: "fill",
-	sun: "default",
 	"user-round": "default",
 	"users-round": "default"
 };
-function lf({ name: e }) {
+function nf({ name: e }) {
 	let t = ru(), n = y.useRef(null), [r, i] = y.useState(!1);
 	y.useEffect(() => {
 		let e = n.current?.closest(".service-card, .value-card, .contact-row, .card");
@@ -16010,7 +15782,7 @@ function lf({ name: e }) {
 			e.removeEventListener("mouseenter", t), e.removeEventListener("mouseleave", r);
 		};
 	}, []);
-	let a = sf[e];
+	let a = ef[e];
 	return a ? /* @__PURE__ */ (0, W.jsx)("span", {
 		ref: n,
 		className: "animated-icon-motion-target",
@@ -16019,11 +15791,11 @@ function lf({ name: e }) {
 			animateOnHover: !0,
 			loop: r,
 			loopDelay: 800,
-			animation: cf[e] || "default",
+			animation: tf[e] || "default",
 			children: /* @__PURE__ */ (0, W.jsx)(a, {
 				className: "animated-icon",
 				size: 20,
-				animation: cf[e] || "default",
+				animation: tf[e] || "default",
 				animate: r
 			})
 		})
@@ -16085,11 +15857,11 @@ function lf({ name: e }) {
 			strokeLinecap: "round",
 			strokeLinejoin: "round",
 			"aria-hidden": "true",
-			children: af[e]
+			children: Qd[e]
 		})
 	});
 }
-function uf({ name: e }) {
+function rf({ name: e }) {
 	return /* @__PURE__ */ (0, W.jsx)("svg", {
 		className: "animated-control-svg",
 		width: "18",
@@ -16101,10 +15873,10 @@ function uf({ name: e }) {
 		strokeLinecap: "round",
 		strokeLinejoin: "round",
 		"aria-hidden": "true",
-		children: af[e]
+		children: Qd[e]
 	});
 }
-function df({ name: e }) {
+function af({ name: e }) {
 	return e === "arrow-up" ? /* @__PURE__ */ (0, W.jsx)(fd, {
 		animate: !0,
 		loop: !0,
@@ -16114,17 +15886,17 @@ function df({ name: e }) {
 			className: "animated-control-svg",
 			size: 14
 		})
-	}) : /* @__PURE__ */ (0, W.jsx)(uf, { name: e });
+	}) : /* @__PURE__ */ (0, W.jsx)(rf, { name: e });
 }
-function ff() {
-	Object.entries(of).forEach(([e, t]) => {
+function of() {
+	Object.entries($d).forEach(([e, t]) => {
 		document.querySelectorAll(`.${e}`).forEach((e, n) => {
 			e.classList.add("animated-icon-shell"), e.replaceChildren();
 			let r = e.dataset.icon || t[n % t.length];
-			(0, mu.createRoot)(e).render(/* @__PURE__ */ (0, W.jsx)(lf, { name: r }));
+			(0, mu.createRoot)(e).render(/* @__PURE__ */ (0, W.jsx)(nf, { name: r }));
 		});
 	}), document.querySelectorAll(".faq-q .chev").forEach((e) => {
-		e.classList.add("animated-control-icon"), (0, mu.createRoot)(e).render(/* @__PURE__ */ (0, W.jsx)(uf, { name: "chevronDown" }));
+		e.classList.add("animated-control-icon"), (0, mu.createRoot)(e).render(/* @__PURE__ */ (0, W.jsx)(rf, { name: "chevronDown" }));
 	}), Object.entries({
 		"#back-to-top": "arrow-up",
 		"#cal-prev": "arrowLeft",
@@ -16135,8 +15907,8 @@ function ff() {
 		"#min-down": "chevronDown"
 	}).forEach(([e, t]) => {
 		let n = document.querySelector(e);
-		n && (n.classList.add("animated-control-icon"), (0, mu.createRoot)(n).render(/* @__PURE__ */ (0, W.jsx)(df, { name: t })));
+		n && (n.classList.add("animated-control-icon"), (0, mu.createRoot)(n).render(/* @__PURE__ */ (0, W.jsx)(af, { name: t })));
 	});
 }
-document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", ff, { once: !0 }) : ff();
+document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", of, { once: !0 }) : of();
 //#endregion

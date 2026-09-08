@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Show a quick return-to-top control after the user starts scrolling.
+  var siteHeader = document.querySelector("header");
+  var updateHeader = function () {
+    if (siteHeader)
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
   var backToTop = document.getElementById("back-to-top");
   if (backToTop) {
     var updateBackToTop = function () {
@@ -34,17 +42,27 @@ document.addEventListener("DOMContentLoaded", function () {
     ".avatar-photo",
     ".booking-form",
     ".expect-box",
-    ".contact-photo",
     ".location-banner",
     ".still-questions",
     ".page-head",
     ".tos-agree",
+    ".section-head",
+    ".value-card",
+    ".testimonial-card",
+    ".crisis-banner",
+    ".footer-grid",
+    ".faq-intro",
+    ".faq-list",
+    ".contact-grid",
+    ".contact-cta-card",
+    ".booking-grid",
   ];
   var revealEls = document.querySelectorAll(revealSelectors.join(","));
 
   if ("IntersectionObserver" in window && revealEls.length) {
-    revealEls.forEach(function (el) {
+    revealEls.forEach(function (el, index) {
       el.classList.add("reveal");
+      el.style.setProperty("--reveal-delay", (index % 6) * 70 + "ms");
     });
 
     var io = new IntersectionObserver(
@@ -403,7 +421,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // close all others (single-open accordion)
       document.querySelectorAll(".faq-item.open").forEach(function (openItem) {
-        if (openItem !== item) openItem.classList.remove("open");
+        if (openItem !== item) {
+          openItem.classList.remove("open");
+          var openButton = openItem.querySelector(".faq-q");
+          if (openButton) openButton.setAttribute("aria-expanded", "false");
+        }
       });
 
       item.classList.toggle("open", !isOpen);
