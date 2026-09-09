@@ -712,6 +712,9 @@ form.booking-form {
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+.captcha-field {
+  margin: 4px 0;
+}
 .consent-row input {
   width: auto;
   margin-top: 3px;

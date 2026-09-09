@@ -497,10 +497,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      var formData = Object.fromEntries(new FormData(form).entries());
+
+      if (!formData["h-captcha-response"]) {
+        status.className = "err";
+        status.textContent = "Please complete the captcha verification.";
+        return;
+      }
+
       status.className = "";
       status.textContent = "Sending...";
-
-      var formData = Object.fromEntries(new FormData(form).entries());
 
       try {
         var response = await fetch("/api/booking", {
@@ -528,6 +534,8 @@ document.addEventListener("DOMContentLoaded", function () {
           "Network error — please check your connection and try again.";
         status.className = "err";
       }
+
+      if (window.hcaptcha) window.hcaptcha.reset();
     });
   }
 
