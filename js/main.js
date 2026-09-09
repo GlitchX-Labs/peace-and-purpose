@@ -482,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Booking form -> server-side submission endpoint
+  // Booking form -> direct Web3Forms submission
   var form = document.getElementById("booking-form");
   if (form) {
     var status = document.getElementById("form-status");
@@ -499,6 +499,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       var formData = Object.fromEntries(new FormData(form).entries());
 
+      if (formData.botcheck) {
+        status.textContent = "Thank you — I'll get back to you within a day.";
+        status.className = "ok";
+        form.reset();
+        document.dispatchEvent(new Event("slots:reset"));
+        return;
+      }
+
       if (!formData["h-captcha-response"]) {
         status.className = "err";
         status.textContent = "Please complete the captcha verification.";
@@ -509,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function () {
       status.textContent = "Sending...";
 
       try {
-        var response = await fetch("/api/booking", {
+        var response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
