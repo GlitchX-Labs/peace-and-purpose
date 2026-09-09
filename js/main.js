@@ -534,6 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.dispatchEvent(new Event("slots:reset"));
         } else {
           status.textContent =
+            result.message ||
             "Something went wrong. Please try again or reach out directly.";
           status.className = "err";
         }
