@@ -346,6 +346,121 @@ document.addEventListener("DOMContentLoaded", function () {
     updateChips();
   })();
 
+  // ---- Testimonials carousel (looping, page-dot indicators) ----
+  (function () {
+    var track = document.getElementById("testimonial-track");
+    if (!track) return;
+
+    var prevBtn = document.getElementById("testimonial-prev");
+    var nextBtn = document.getElementById("testimonial-next");
+    var dotsWrap = document.getElementById("testimonial-dots");
+    var cards = Array.prototype.slice.call(
+      track.querySelectorAll(".testimonial-card"),
+    );
+    var desktopQuery = window.matchMedia("(min-width: 720px)");
+    var currentPage = 0;
+    var scrollTimer = null;
+    var resizeTimer = null;
+
+    function visibleCount() {
+      return desktopQuery.matches ? 3 : 1;
+    }
+
+    function totalPages() {
+      return Math.ceil(cards.length / visibleCount());
+    }
+
+    function cardLeft(card) {
+      return (
+        card.getBoundingClientRect().left -
+        track.getBoundingClientRect().left +
+        track.scrollLeft
+      );
+    }
+
+    function updateDots() {
+      var dots = dotsWrap.querySelectorAll(".carousel-dot");
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === currentPage);
+        dot.setAttribute("aria-current", i === currentPage ? "true" : "false");
+      });
+    }
+
+    function renderDots() {
+      dotsWrap.innerHTML = "";
+      var pages = totalPages();
+      for (var i = 0; i < pages; i++) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", "Go to testimonial group " + (i + 1));
+        (function (page) {
+          dot.addEventListener("click", function () {
+            goToPage(page);
+          });
+        })(i);
+        dotsWrap.appendChild(dot);
+      }
+      updateDots();
+    }
+
+    function goToPage(page) {
+      var pages = totalPages();
+      currentPage = ((page % pages) + pages) % pages;
+      var targetIndex = Math.min(
+        currentPage * visibleCount(),
+        cards.length - 1,
+      );
+      track.scrollTo({
+        left: cardLeft(cards[targetIndex]),
+        behavior: "smooth",
+      });
+      updateDots();
+    }
+
+    function nearestPage() {
+      var closestIndex = 0;
+      var closestDist = Infinity;
+      cards.forEach(function (card, i) {
+        var dist = Math.abs(cardLeft(card) - track.scrollLeft);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIndex = i;
+        }
+      });
+      return Math.round(closestIndex / visibleCount());
+    }
+
+    prevBtn.addEventListener("click", function () {
+      goToPage(currentPage - 1);
+    });
+    nextBtn.addEventListener("click", function () {
+      goToPage(currentPage + 1);
+    });
+
+    track.addEventListener(
+      "scroll",
+      function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          currentPage = nearestPage();
+          updateDots();
+        }, 120);
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        renderDots();
+        goToPage(0);
+      }, 150);
+    });
+
+    renderDots();
+  })();
+
   // ---- Button ripple effect ----
   document.querySelectorAll(".btn, button").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
@@ -367,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Booking form -> Web3Forms
+  // Booking form -> server-side submission endpoint
   var form = document.getElementById("booking-form");
   if (form) {
     var status = document.getElementById("form-status");
@@ -385,13 +500,16 @@ document.addEventListener("DOMContentLoaded", function () {
       status.className = "";
       status.textContent = "Sending...";
 
-      var formData = new FormData(form);
+      var formData = Object.fromEntries(new FormData(form).entries());
 
       try {
-        var response = await fetch("https://api.web3forms.com/submit", {
+        var response = await fetch("/api/booking", {
           method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" },
+          body: JSON.stringify(formData),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
         });
         var result = await response.json();
 

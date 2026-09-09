@@ -196,6 +196,8 @@ function enhanceIcons() {
     "#back-to-top": "arrow-up",
     "#cal-prev": "arrowLeft",
     "#cal-next": "arrowRight",
+    "#testimonial-prev": "arrowLeft",
+    "#testimonial-next": "arrowRight",
     "#hour-up": "arrow-up",
     "#min-up": "arrow-up",
     "#hour-down": "chevronDown",

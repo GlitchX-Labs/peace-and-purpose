@@ -1,3 +1,14 @@
 node_modules/
 dist/
 peace-and-purpose/
+
+# Secrets — never commit real credentials
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Backups / stray files
+*.bak
+*.old
