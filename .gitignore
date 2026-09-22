@@ -1,6 +1,13 @@
 node_modules/
-dist/
+.next/
+out/
 peace-and-purpose/
+
+# Local agent/skill tooling — not site source
+.agents/
+.claude/
+.impeccable/review/
+.impeccable/mocks/
 
 # Secrets — never commit real credentials
 .env

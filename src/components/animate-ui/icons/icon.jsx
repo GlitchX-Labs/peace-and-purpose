@@ -2,8 +2,8 @@
 import * as React from "react";
 import { motion, useAnimation } from "motion/react";
 
-import { cn } from "../../../../lib/utils";
-import { useIsInView } from "../../../hooks/use-is-in-view";
+import { cn } from "@/lib/utils";
+import { useIsInView } from "@/hooks/use-is-in-view";
 import { Slot } from "../primitives/animate/slot";
 
 const staticAnimations = {
