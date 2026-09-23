@@ -3,9 +3,13 @@ import { IconCircle } from "@/components/icons/IconCircle";
 
 export const metadata = {
   title: "Privacy Notice",
-  description: "Learn how Peace & Purpose handles your information with care and transparency.",
+  description:
+    "Learn how Peace & Purpose handles your information with care and transparency.",
   alternates: { canonical: "/privacy-notice" },
-  openGraph: { url: "/privacy-notice", title: "Privacy Notice, Peace & Purpose" },
+  openGraph: {
+    url: "/privacy-notice",
+    title: "Privacy Notice, Peace & Purpose",
+  },
 };
 
 export default function PrivacyNoticePage() {
@@ -14,8 +18,9 @@ export default function PrivacyNoticePage() {
       <div className="page-head wrap">
         <h1>Privacy Notice</h1>
         <p>
-          We value your trust. This notice outlines how we handle your information with care and
-          transparency, ensuring your digital experience with us is as safe as your physical one.
+          We value your trust. This notice outlines how we handle your
+          information with care and transparency, ensuring your digital
+          experience with us is as safe as your physical one.
         </p>
       </div>
 
@@ -28,17 +33,17 @@ export default function PrivacyNoticePage() {
                 Information We Collect
               </h3>
               <p>
-                To provide you with the best support, we only ask for what is strictly necessary to
-                arrange and manage your sessions.
+                To provide you with the best support, we only ask for what is
+                strictly necessary to arrange and manage your sessions.
               </p>
               <ul className="bullet-list">
                 <li>
-                  <strong>Basic Details:</strong> Your name and contact information (email, phone
-                  number).
+                  <strong>Basic Details:</strong> Your name and contact
+                  information (email, phone number).
                 </li>
                 <li>
-                  <strong>Preferences:</strong> Your preferred mode of contact and scheduling
-                  availability.
+                  <strong>Preferences:</strong> Your preferred mode of contact
+                  and scheduling availability.
                 </li>
               </ul>
             </Reveal>
@@ -49,8 +54,9 @@ export default function PrivacyNoticePage() {
                 Purpose of Collection
               </h3>
               <p>
-                Your data is never sold or used for marketing. We collect this information solely for
-                administrative purposes to facilitate your therapy journey.
+                Your data is never sold or used for marketing. We collect this
+                information solely for administrative purposes to facilitate
+                your therapy journey.
               </p>
               <div className="tag-row">
                 <span className="tag">Scheduling</span>
@@ -65,16 +71,22 @@ export default function PrivacyNoticePage() {
                 Data Retention &amp; Deletion
               </h3>
               <p>
-                We retain your contact information only as long as you are actively seeking our
-                services. You have full control over your data. If you wish to have your information
-                removed from our systems, simply reach out to us.
+                We retain your contact information only as long as you are
+                actively seeking our services. You have full control over your
+                data. If you wish to have your information removed from our
+                systems, simply reach out to us.
               </p>
               <div className="deletion-box">
                 <span>
                   <strong>Request Deletion:</strong> email us at{" "}
-                  <a href="mailto:privacy@peaceandpurpose.in">privacy@peaceandpurpose.in</a>
+                  <a href="mailto:infopeacenpurpose@gmail.com">
+                    infopeacenpurpose@gmail.com
+                  </a>
                 </span>
-                <a href="mailto:privacy@peaceandpurpose.in" className="btn btn-outline">
+                <a
+                  href="mailto:infopeacenpurpose@gmail.com"
+                  className="btn btn-outline"
+                >
                   Email Request
                 </a>
               </div>
