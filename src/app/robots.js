@@ -3,6 +3,6 @@ export const dynamic = "force-static";
 export default function robots() {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://peaceandpurpose.in/sitemap.xml",
+    sitemap: "https://peacenpurpose.in/sitemap.xml",
   };
 }

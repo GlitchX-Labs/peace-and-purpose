@@ -27,10 +27,10 @@ const jsonLd = {
   name: "Peace & Purpose",
   description:
     "Solo private practice offering individual therapy, couples counseling, and mindfulness workshops with Jennifer Jason, MSc. Counselling Psychology.",
-  url: "https://peaceandpurpose.in/",
-  image: "https://peaceandpurpose.in/images/therapy.jpg",
+  url: "https://peacenpurpose.in/",
+  image: "https://peacenpurpose.in/images/therapy.jpg",
   email: "infopeacenpurpose@gmail.com",
-  telephone: "+91-831-087-9825",
+  telephone: "+918310879825",
   areaServed: "IN",
   medicalSpecialty: "Psychiatric",
   founder: {

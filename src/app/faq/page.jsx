@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { faqs } from "@/lib/faq";
 
 export const metadata = {
   title: "FAQ",
@@ -8,9 +9,26 @@ export const metadata = {
   openGraph: { url: "/faq", title: "FAQ, Peace & Purpose" },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="wrap">
         <div className="faq-split">
           <Reveal className="faq-intro">

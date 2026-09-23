@@ -30,7 +30,7 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://peaceandpurpose.in"),
+  metadataBase: new URL("https://peacenpurpose.in"),
   title: {
     default: "Peace & Purpose · Healing Minds",
     template: "%s · Peace & Purpose",
